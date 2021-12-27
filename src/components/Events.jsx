@@ -40,14 +40,10 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-
-
 export const Events = () => {
     const classes = useStyles();
     return (
         <Container>
-            {/* <Box sx={{ width:'100%', bgcolor: '#cfe8fc', height: '100vh' }} /> */}
-
             <Grid
                 container
                 direction="row"
@@ -57,7 +53,6 @@ export const Events = () => {
                 <CustomSeparator />
                 <Typography>IS77@biz.com</Typography>
             </Grid>
-
             <Grid
                 container
                 sx={{ mt: 4 }}
@@ -70,15 +65,12 @@ export const Events = () => {
                     New Event
                 </Button>
             </Grid>
-
             <Box
                 container
                 sx={{ ...commonStyles, boxShadow: 1 }}
 
             >
                 <Typography style={{fontWeight: '600'}} variant="subtitle1" gutterBottom component="div">Activity</Typography>
-
-
                 <Divider />
                 <Stack
                     sx={{ mt: 1 }}
@@ -94,7 +86,6 @@ export const Events = () => {
                             <Typography className={classes.eventCardsDescription}>Events Created</Typography>
                         </Box>
                     </Grid>
-
                     <Grid item className={classes.eventCards} xs={4} >
                         <FontAwesomeIcon icon={faCamera} className={classes.eventCardsIcon} color="#1976d2" />
                         <Box sx={{ ml: 1, alignItems: 'center' }}>
@@ -102,7 +93,6 @@ export const Events = () => {
                             <Typography className={classes.eventCardsDescription}>Photos Captured</Typography>
                         </Box>
                     </Grid>
-
                     <Grid item className={classes.eventCards} xs={4} >
                         <FontAwesomeIcon icon={faShareAlt} className={classes.eventCardsIcon} color="#1976d2" />
                         <Box sx={{ ml: 1, alignItems: 'center' }}>
@@ -110,21 +100,13 @@ export const Events = () => {
                             <Typography className={classes.eventCardsDescription}>Shares Collected</Typography>
                         </Box>
                     </Grid>
-                    {/* <Item>Item 2</Item>
-                    <Item>Item 3</Item> */}
                 </Stack>
             </Box >
-
             <Box
                 container
                 sx={{ ...commonStyles, mt: 2 }}
             >
-                <Stack
-                // sx={{ mt: 1 }}
-                // direction="row"
-                // divider={<Divider orientation="vertical" flexItem />}
-                // spacing={2}
-                >
+                <Stack>
                     <TextField
                         label="Search..."
                         id="outlined-size-small"
@@ -188,7 +170,6 @@ export const Events = () => {
 
                 </Stack>
             </Box >
-
         </Container >
     );
 }
@@ -235,5 +216,4 @@ const useStyles = makeStyles(theme => ({
         color: '#000 !important',
         fontSize: '14px !important',
     }
-
 }))

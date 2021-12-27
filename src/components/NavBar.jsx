@@ -4,8 +4,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { CustomSeparator } from './BreadCrumbs'
-import { Grid } from '@mui/material';
 import { Events } from './Events';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage, faPersonBooth } from '@fortawesome/free-solid-svg-icons'

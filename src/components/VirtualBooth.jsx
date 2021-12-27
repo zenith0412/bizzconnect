@@ -3,14 +3,10 @@ import React, { useState } from 'react';
 import { CustomSeparator } from './BreadCrumbs';
 import { makeStyles } from '@material-ui/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faCamera, faShareAlt, faChevronDown, faPencilAlt, faCopy, faTrashAlt, faPlus, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
@@ -18,11 +14,9 @@ import TimePicker from '@mui/lab/TimePicker';
 
 
 const commonStyles = {
-    // bgcolor: 'background.paper',
     borderColor: 'text.primary',
     marginTop: '10px',
     border: '2px solid #7755771a',
-    // width: '100%',
     height: 'auto',
     borderRadius: '16px',
     padding: '30px',
@@ -31,8 +25,6 @@ const commonStyles = {
 
 export const VertualBooth = () => {
     const classes = useStyles();
-    // const [startDate, setStartDate] = useState(new Date("2014/02/08"));
-    // const [endDate, setEndDate] = useState(new Date("2014/02/10"));
     const [startDate, setStartDate] = React.useState(null);
     const [startTime, setStartTime] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
@@ -77,25 +69,8 @@ export const VertualBooth = () => {
             <Box
                 container
                 sx={{ ...commonStyles, boxShadow: 1 }}
-
             >
                 <Typography style={{ fontWeight: 600 }} variant="h6" gutterBottom component="div">General</Typography>
-
-                {/* <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                />
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                /> */}
                 <FormControl style={{ margin: '20px' }} component="fieldset">
                     <FormLabel className={classes.inputLableStyle} component="legend">Event Name</FormLabel>
                     <TextField size="small" fullWidth label="Choose event name" id="fullWidth" />
@@ -111,7 +86,6 @@ export const VertualBooth = () => {
                                     value={startDate}
                                     onChange={(newValue) => {
                                         handleDate(newValue);
-                                        // setStartDate(newValue);
                                     }}
                                     InputProps={{
                                         style: {
@@ -179,71 +153,24 @@ export const VertualBooth = () => {
                         </Grid>
                         <FormLabel sx={{ mt: 3 }} className={classes.inputLableStyle} component="legend">Slug(www.bizconnectevents.com/slug)</FormLabel>
                         <TextField size="small" fullWidth label="Choose your event name as slug, Min 6 Characters" id="fullWidth" />
-
-
-
-
-
-
-
-
                     </LocalizationProvider>
                 </FormControl>
-
-
-
             </Box >
-
-
-
         </Container>
     );
 }
 
 const useStyles = makeStyles(theme => ({
-    // eventCards: {
-    //     display: 'flex',
-    //     flexDirection: 'row',
-    //     justifyContent: 'center',
-    //     padding: "25px",
-    // },
     inputLableStyle: {
         color: '#000 !important',
         fontSize: '15px !important',
         fontWeight: 'bold !important',
         marginBottom: '10px',
     },
-    // eventCardsDescription: {
-    //     fontSize: '12px !important',
-    //     fontWeight: 'bold !important',
-    //     color: '#757575',
-    // },
-    // searchBar: {
-    //     height: 35,
-    // },
-    // searchBarLabel: {
-    //     fontSize: '12px !important'
-    // },
-    // tableBorder: {
-    //     "& .MuiTableCell-root": {
-    //         borderBottom: 'none'
-    //     }
-    // },
-    // titleFontWeight: {
-    //     fontWeight: '600 !important',
-    // },
     commonButtonStyle: {
         borderRadius: '10px !important',
         fontWeight: "600",
     },
-    // eventCardsIcon: {
-    //     fontSize: '40px'
-    // },
-    // tableIconsStyle: {
-    //     color: '#000 !important',
-    //     fontSize: '14px !important',
-    // }
-
     '& .css-1u3bzj6-MuiFormControl-root-MuiTextField-root': {
         width: '100% !important'
     }
