@@ -56,17 +56,7 @@ export const VertualBooth = () => {
     const [startTime, setStartTime] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
     const [endTime, setEndTime] = React.useState(null);
-
     const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
-
-    const isStepOptional = (step) => {
-        return step === 1;
-    };
-
-    const isStepSkipped = (step) => {
-        return skipped.has(step);
-    };
 
     const handleDate = (sdate) => {
         setStartDate(sdate)
