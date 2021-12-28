@@ -13,7 +13,7 @@ function handleClick(event) {
 export const CustomSeparator = () => {
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
-      MUI
+      Dashboard
     </Link>,
     <Link
       underline="hover"
@@ -22,10 +22,10 @@ export const CustomSeparator = () => {
       href="/getting-started/installation/"
       onClick={handleClick}
     >
-      Core
+      Booth
     </Link>,
     <Typography key="3" color="text.primary">
-      Breadcrumb
+      All
     </Typography>,
   ];
 

@@ -1,4 +1,4 @@
-import { Autocomplete, Button, Container, Grid, IconButton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
+import { Autocomplete, Button, Container, Grid, IconButton, Stack, StepButton, Stepper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
 import { Box, fontWeight } from '@mui/system';
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faCamera, faShareAlt, faChevronDown, faPencilAlt, faCopy, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faCamera, faShareAlt, faChevronDown, faPencilAlt, faCopy, faTrashAlt, faPlus, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 import { makeStyles } from '@material-ui/styles';
 
 function createData(name, calories, fat, carbs, protein) {
@@ -51,7 +51,7 @@ export const Events = () => {
                 alignItems="flex-start"
             >
                 <CustomSeparator />
-                <Typography>IS77@biz.com</Typography>
+                <Typography>IS77@biz.com <FontAwesomeIcon style={{ fontSize: '12px', marginLeft: '8px' }} icon={faPowerOff} /></Typography>
             </Grid>
             <Grid
                 container
@@ -60,8 +60,8 @@ export const Events = () => {
                 justifyContent="space-between"
                 alignItems="flex-start"
             >
-                <Typography variant="h6" className={classes.titleFontWeight}>Events</Typography>
-                <Button className={classes.commonButtonStyle} size="small" variant="contained" startIcon={<FontAwesomeIcon style={{fontSize:'15px'}} icon={faPlus}  />}>
+                <Typography variant="h6" className={classes.titleFontWeight}>Events</Typography>.
+                <Button className={classes.commonButtonStyle} size="small" variant="contained" startIcon={<FontAwesomeIcon style={{ fontSize: '15px' }} icon={faPlus} />}>
                     New Event
                 </Button>
             </Grid>
@@ -70,7 +70,7 @@ export const Events = () => {
                 sx={{ ...commonStyles, boxShadow: 1 }}
 
             >
-                <Typography style={{fontWeight: '600'}} variant="subtitle1" gutterBottom component="div">Activity</Typography>
+                <Typography style={{ fontWeight: '600' }} variant="subtitle1" gutterBottom component="div">Activity</Typography>
                 <Divider />
                 <Stack
                     sx={{ mt: 1 }}
@@ -113,7 +113,7 @@ export const Events = () => {
                         size="small"
                         InputProps={{ className: classes.searchBar }}
                         InputLabelProps={{ className: classes.searchBarLabel }}
-                        sx={{ width: 300, mb: 2}}
+                        sx={{ width: 300, mb: 2 }}
                     />
 
                     <Divider />
@@ -144,7 +144,7 @@ export const Events = () => {
                                         <TableCell width="25%" >{row.fat}</TableCell>
                                         <TableCell width="11%">{row.protein}</TableCell>
                                         <TableCell >
-                                            <Button className={classes.commonButtonStyle} size="small" variant="contained" startIcon={<FontAwesomeIcon style={{fontSize:'15px'}} icon={faChevronDown} />}>
+                                            <Button className={classes.commonButtonStyle} size="small" variant="contained" startIcon={<FontAwesomeIcon style={{ fontSize: '15px' }} icon={faChevronDown} />}>
                                                 De-activate
                                             </Button>
                                         </TableCell>
@@ -212,7 +212,7 @@ const useStyles = makeStyles(theme => ({
     eventCardsIcon: {
         fontSize: '40px'
     },
-    tableIconsStyle : {
+    tableIconsStyle: {
         color: '#000 !important',
         fontSize: '14px !important',
     }

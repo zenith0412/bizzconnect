@@ -1,9 +1,10 @@
-import { Box, Button, Container, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, InputLabel, Radio, Stack, Step, StepButton, StepContent, StepLabel, Stepper, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { CustomSeparator } from './BreadCrumbs';
 import { makeStyles } from '@material-ui/styles';
+import { styled } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronLeft, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
@@ -11,6 +12,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import TimePicker from '@mui/lab/TimePicker';
+import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 
 
 const commonStyles = {
@@ -23,12 +25,48 @@ const commonStyles = {
     textAlign: 'left'
 };
 
+const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad', 'Create an ad group', 'Create an ad'];
+
+const QontoConnector = styled(StepConnector)(({ theme }) => ({
+    [`&.${stepConnectorClasses.alternativeLabel}`]: {
+        top: 22,
+        left: 'calc(-44% + 16px)',
+        right: 'calc(32% + 16px)',
+    },
+    [`&.${stepConnectorClasses.active}`]: {
+        [`& .${stepConnectorClasses.line}`]: {
+            borderColor: '#382f2f94',
+        },
+    },
+    [`&.${stepConnectorClasses.completed}`]: {
+        [`& .${stepConnectorClasses.line}`]: {
+            borderColor: '#784af4',
+        },
+    },
+    [`& .${stepConnectorClasses.line}`]: {
+        borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#382f2f94',
+        borderTopWidth: 1,
+        borderRadius: 1,
+    },
+}));
+
 export const VertualBooth = () => {
     const classes = useStyles();
     const [startDate, setStartDate] = React.useState(null);
     const [startTime, setStartTime] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
     const [endTime, setEndTime] = React.useState(null);
+
+    const [activeStep, setActiveStep] = React.useState(0);
+    const [skipped, setSkipped] = React.useState(new Set());
+
+    const isStepOptional = (step) => {
+        return step === 1;
+    };
+
+    const isStepSkipped = (step) => {
+        return skipped.has(step);
+    };
 
     const handleDate = (sdate) => {
         setStartDate(sdate)
@@ -46,7 +84,7 @@ export const VertualBooth = () => {
                 alignItems="flex-start"
             >
                 <CustomSeparator />
-                <Typography>IS77@biz.com</Typography>
+                <Typography>IS77@biz.com <FontAwesomeIcon style={{ fontSize: '12px', marginLeft: '8px' }} icon={faPowerOff} /></Typography>
             </Grid>
 
             <Grid
@@ -57,6 +95,19 @@ export const VertualBooth = () => {
                 alignItems="flex-start"
             >
                 <Typography variant="h6" className={classes.titleFontWeight}>Virtual Booth</Typography>
+                <Stepper activeStep={1} alternativeLabel connector={<QontoConnector />}>
+                    {steps.map((label) => (
+                        <Step key={label}>
+                            <Radio
+                                sx={{
+                                    '& .MuiSvgIcon-root': {
+                                        fontSize: 28,
+                                    },
+                                }}
+                            />
+                        </Step>
+                    ))}
+                </Stepper>
                 <Stack direction="row">
                     <Button style={{ backgroundColor: "grey" }} className={classes.commonButtonStyle} size="large" variant="contained" startIcon={<FontAwesomeIcon style={{ fontSize: '15px' }} icon={faChevronLeft} />}>
                         Go Back
@@ -81,8 +132,6 @@ export const VertualBooth = () => {
                                 <DatePicker
                                     size="small"
                                     className={classes.eventFormField}
-                                    width={50}
-
                                     value={startDate}
                                     onChange={(newValue) => {
                                         handleDate(newValue);
@@ -90,7 +139,8 @@ export const VertualBooth = () => {
                                     InputProps={{
                                         style: {
                                             fontSize: 14,
-                                            height: 45
+                                            height: 45,
+                                            width: '315px',
                                         }
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
@@ -124,7 +174,8 @@ export const VertualBooth = () => {
                                     InputProps={{
                                         style: {
                                             fontSize: 14,
-                                            height: 45
+                                            height: 45,
+                                            width: '315px',
                                         }
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
