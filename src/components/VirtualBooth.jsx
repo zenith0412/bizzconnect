@@ -30,8 +30,8 @@ const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad',
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
         top: 22,
-        left: 'calc(-44% + 16px)',
-        right: 'calc(32% + 16px)',
+        left: 'calc(-58% + 16px)',
+        right: 'calc(40% + 16px)',
     },
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
