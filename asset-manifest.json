@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bizzconnect/static/css/main.180470a5.css",
-    "main.js": "/bizzconnect/static/js/main.be79e977.js",
+    "main.js": "/bizzconnect/static/js/main.ee092d1c.js",
     "static/js/787.bc3e593e.chunk.js": "/bizzconnect/static/js/787.bc3e593e.chunk.js",
     "index.html": "/bizzconnect/index.html",
     "main.180470a5.css.map": "/bizzconnect/static/css/main.180470a5.css.map",
-    "main.be79e977.js.map": "/bizzconnect/static/js/main.be79e977.js.map",
+    "main.ee092d1c.js.map": "/bizzconnect/static/js/main.ee092d1c.js.map",
     "787.bc3e593e.chunk.js.map": "/bizzconnect/static/js/787.bc3e593e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.180470a5.css",
-    "static/js/main.be79e977.js"
+    "static/js/main.ee092d1c.js"
   ]
 }
